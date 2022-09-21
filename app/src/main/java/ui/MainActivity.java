@@ -3,10 +3,12 @@ package ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import algonquin.cst2335.dai00047.databinding.ActivityMainBinding;
 import data.MainViewModel;
@@ -50,6 +52,56 @@ public class MainActivity extends AppCompatActivity {
         model.editString.observe(this,s ->{
            variableBinding.textview.setText("Your edit text has" +s);
         });
+
+            model.isSelected.observe(this,isChecked ->{
+                variableBinding.checkbox.setChecked(isChecked);
+                variableBinding.myswitch.setChecked(isChecked);
+                variableBinding.myradio.setChecked(isChecked);
+
+
+
+
+
+
+
+
+            });
+
+
+         variableBinding.checkbox.setOnCheckedChangeListener( (button, isChecked)->{
+             Toast.makeText(getApplicationContext(),
+                     "You clicked on the " +  "checkbox" + " and it is now: "
+                             + isChecked,Toast.LENGTH_SHORT).show();
+
+         });
+
+
+        variableBinding.myradio.setOnCheckedChangeListener( (button, isChecked)->{
+            Toast.makeText(getApplicationContext(),
+                    "You clicked on the " +  "radiobutton" + " and it is now: "
+                            + isChecked,Toast.LENGTH_SHORT).show();
+
+        });
+
+
+        variableBinding.myswitch.setOnCheckedChangeListener( (button, isChecked)->{
+            Toast.makeText(getApplicationContext(),
+                    "You clicked on the " +  "myswitch" + " and it is now: "
+                            + isChecked,Toast.LENGTH_SHORT).show();
+
+        });
+
+        variableBinding.myimagebutton.setOnClickListener( (click->{
+            double width = variableBinding.myimagebutton.getWidth();
+            double height = variableBinding.myimagebutton.getHeight();
+
+            Toast.makeText(getApplicationContext(),
+                            "The width = " + width + " and height = "
+                            + height,Toast.LENGTH_SHORT).show();
+
+        }));
+
+
 
 
 
