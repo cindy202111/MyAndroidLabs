@@ -6,4 +6,5 @@
     <string name="button1">我是按钮1</string>
     <string name="button2">我是按钮2</string>
     <string name="button3">我是按钮3</string>
+    <string name="spin_message">我是旋转按钮</string>
 </resources>
