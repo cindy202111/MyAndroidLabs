@@ -3,4 +3,7 @@
     <string name="app_name">Yongli Dai\'s Android Labs</string>
     <string name="hello_message">你好！</string>
     <string name="button_message">我是按钮</string>
+    <string name="button1">我是按钮1</string>
+    <string name="button2">我是按钮2</string>
+    <string name="button3">我是按钮3</string>
 </resources>
