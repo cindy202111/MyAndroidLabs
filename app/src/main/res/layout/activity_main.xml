@@ -7,71 +7,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ui.MainActivity"
-    android:layout_marginTop="27dp"
-    android:layout_marginBottom="27dp"
-    android:layout_marginLeft="48dp"
-    android:layout_marginRight="48dp"
+
 
     >
 
 
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="377dp"
+        android:layout_height="56dp"
+        android:text="Enter your email address:"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="50dp" />
+
+
+    <EditText
+        android:layout_width="377dp"
+        android:layout_height="56dp"
+        android:hint="Type email here"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="106dp" />
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="359dp"
+        android:layout_height="79dp"
+        android:text="Type your password:"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="171dp" />
+
+    <EditText
+        android:layout_width="359dp"
+        android:layout_height="56dp"
+        android:hint="Type password here"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="228dp" />
+
     <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/button1"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:nextFocusUp="@id/button1"
-        android:nextFocusDown="@id/button3"
-        android:nextFocusRight="@id/button2 "
-        android:nextFocusLeft="@id/switch1"
+        android:id="@+id/button"
+        android:layout_width="389dp"
+        android:layout_height="49dp"
+        android:text="LOGIN"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="486dp" />
 
-        />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="@string/button2"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button1"
-        app:layout_constraintTop_toTopOf="@+id/button1" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="@string/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="@+id/button1"
-        app:layout_constraintTop_toBottomOf="@+id/button1"
-        app:srcCompat="@drawable/flag" />
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        android:text="@string/spin_message"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
