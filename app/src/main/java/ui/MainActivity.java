@@ -18,14 +18,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
-        String emailAddress = prefs.getString("emailEditText", "");
+        String emailAddress = prefs.getString("Email", "");
         Log.e("MainActivity", "In onCreate()");
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.editText.setText(emailAddress);
         binding.button.setOnClickListener(click -> {
             Intent nextPage = new Intent(MainActivity.this, SecondActivity.class);
-            nextPage.putExtra("EmailAddress", binding.email.getText().toString());
-            prefs.edit().putString("Email", binding.email.getText().toString()).commit();
+            nextPage.putExtra("EmailAddress", binding.editText.getText().toString());
+            prefs.edit().putString("Email", binding.editText.getText().toString()).commit();
             startActivity(nextPage);
         });
 
