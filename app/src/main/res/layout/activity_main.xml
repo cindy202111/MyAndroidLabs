@@ -9,6 +9,7 @@
     tools:context="ui.MainActivity"
 
 
+
     >
 
 
@@ -17,39 +18,44 @@
         android:layout_width="377dp"
         android:layout_height="56dp"
         android:text="Enter your email address:"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="50dp" />
-
+        app:layout_constraintStart_toStartOf="@+id/editText"
+        tools:layout_editor_absoluteY="39dp" />
 
     <EditText
+        android:id="@+id/editText"
         android:layout_width="377dp"
         android:layout_height="56dp"
+        android:layout_marginTop="32dp"
         android:hint="Type email here"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="106dp" />
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <TextView
         android:id="@+id/password"
         android:layout_width="359dp"
         android:layout_height="79dp"
+        android:layout_marginTop="26dp"
         android:text="Type your password:"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="171dp" />
+        app:layout_constraintStart_toStartOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <EditText
+        android:id="@+id/editText2"
         android:layout_width="359dp"
         android:layout_height="56dp"
+        android:layout_marginTop="28dp"
         android:hint="Type password here"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="228dp" />
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        tools:layout_editor_absoluteX="13dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="389dp"
         android:layout_height="49dp"
+        android:layout_marginTop="114dp"
         android:text="LOGIN"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="486dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        tools:layout_editor_absoluteX="18dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
