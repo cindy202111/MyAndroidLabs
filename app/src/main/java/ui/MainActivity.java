@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (checkPasswordComplexity(password)) {
 
-                textView.setText("Your password meets the requirements");
+                textView.setText("Your password meets the requirements.");
 
             } else if (!foundUpperCase) {
                 Toast.makeText(this,"Your are missing an upper case letter",Toast.LENGTH_LONG).show();
@@ -99,17 +99,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     boolean isSpecialCharacter(char c){
-        switch (c){
-
-            case '#':
-            case '?':
-            case '*': return true;
-
-            default: return false;
+        String special = "#$%^&*!@?";
+        boolean found = false;
+        if (special.contains(String.valueOf(c))){
+            found = true;
+        }
+        return found;
 
         }
 
-    }
+
 
 
 
@@ -158,10 +157,10 @@ public class MainActivity extends AppCompatActivity {
          //    textView.setText("You are missing special ");
              return false;
          }
+         else {
 
-
-         return true;
-
+             return true;
+         }
 
 
 
