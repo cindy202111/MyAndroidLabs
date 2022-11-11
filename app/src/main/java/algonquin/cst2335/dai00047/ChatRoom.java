@@ -34,7 +34,7 @@ import data.MessageDatabase;
 public class ChatRoom extends AppCompatActivity {
 
    // ArrayList<String> allMessages;
-
+   MessageDatabase db;
     ArrayList<ChatMessage> chatList = new ArrayList<>();
     ActivityChatRoomBinding binding;
     ChatRoomViewModel chatModel;
@@ -68,6 +68,15 @@ public class ChatRoom extends AppCompatActivity {
             String currentDateandTime = sdf.format(new Date());
            ChatMessage chatMessage = new ChatMessage(messageText,currentDateandTime, true);
            chatList.add(chatMessage);
+
+
+            Executor thread = Executors.newSingleThreadExecutor();
+            thread.execute(() ->
+            { mDAO.insertMessage(chatMessage);
+              //Once you get the data from database
+
+                });
+
             //refresh the list:
             adapter.notifyItemInserted(chatList.size() - 1); //wants to know which position has changed
             binding.textInput.setText("");//remove what was there
@@ -81,10 +90,18 @@ public class ChatRoom extends AppCompatActivity {
             SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd-MMM-yyyy hh-mm-ss a");//  String currentDateandTime = sdf.format(new Date());
             String messageText = binding.textInput.getText().toString();
 
+
+
             String currentDateandTime = sdf.format(new Date());
             ChatMessage chatMessage = new ChatMessage(messageText,currentDateandTime, false);
             chatList.add(chatMessage);
-            //refresh the list:
+
+            Executor thread = Executors.newSingleThreadExecutor();
+            thread.execute(() ->
+            { mDAO.insertMessage(chatMessage);
+                //Once you get the data from database
+
+            }); //refresh the list:
             adapter.notifyItemInserted(chatList.size() - 1); //wants to know which position has changed
             binding.textInput.setText("");//remove what was there
         });
@@ -145,7 +162,7 @@ public class ChatRoom extends AppCompatActivity {
         });  //An adapter is an object that feeds data to the list
 
 
-        MessageDatabase db = Room.databaseBuilder(getApplicationContext(), MessageDatabase.class, "MessageDatabase").build();
+         db = Room.databaseBuilder(getApplicationContext(), MessageDatabase.class, "MessageDatabase").build();
         mDAO = db.cmDAO();
         if(chatList == null)
         {
@@ -184,8 +201,7 @@ public class ChatRoom extends AppCompatActivity {
                 builder.setMessage("Do you want to delete the message: "+ messageText.getText()).
                         setTitle("Question: ").setNegativeButton("No",(dialog, cl) -> {})
                         .setPositiveButton("Yes",(dialog, cl) -> {
-                   // ChatMessage m = chatList.get(position);
-                  //  mDAO.deleteMessage(m);
+
                             ChatMessage removedMessage = chatList.get(position);
                     chatList.remove(position);
                     adapter.notifyItemRemoved(position);
