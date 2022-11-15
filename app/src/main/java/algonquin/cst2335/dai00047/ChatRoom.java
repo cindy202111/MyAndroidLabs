@@ -3,6 +3,8 @@ package algonquin.cst2335.dai00047;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +32,7 @@ import data.ChatMessage;
 import data.ChatMessageDAO;
 import data.ChatRoomViewModel;
 import data.MessageDatabase;
+import data.MessageDetailsFragment;
 
 public class ChatRoom extends AppCompatActivity {
 
@@ -40,6 +43,7 @@ public class ChatRoom extends AppCompatActivity {
     ChatRoomViewModel chatModel;
     RecyclerView.Adapter<MyRowHolder> adapter;
     ChatMessageDAO mDAO;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,8 +93,6 @@ public class ChatRoom extends AppCompatActivity {
 
             SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd-MMM-yyyy hh-mm-ss a");//  String currentDateandTime = sdf.format(new Date());
             String messageText = binding.textInput.getText().toString();
-
-
 
             String currentDateandTime = sdf.format(new Date());
             ChatMessage chatMessage = new ChatMessage(messageText,currentDateandTime, false);
@@ -179,7 +181,30 @@ public class ChatRoom extends AppCompatActivity {
 
 
 
+
+        chatModel.selectedMessage.observe(this, (newMessageValue) -> {
+
+          FragmentManager fMgr = getSupportFragmentManager();
+          FragmentTransaction tx = fMgr.beginTransaction();
+          MessageDetailsFragment theFragment = new MessageDetailsFragment(newMessageValue);
+           tx.add(R.id.fragmentLocation, theFragment);
+            tx.addToBackStack("");
+           tx.commit() ;
+
+
+
+
+        });
+
+
+
+
+
     }
+
+
+
+
 
     //represents a single row
     class MyRowHolder extends RecyclerView.ViewHolder {
@@ -195,26 +220,28 @@ public class ChatRoom extends AppCompatActivity {
 
                 int position = getAbsoluteAdapterPosition();
 
+                ChatMessage selected = chatList.get(position);
 
+                chatModel.selectedMessage.postValue(selected);
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(ChatRoom.this);
-                builder.setMessage("Do you want to delete the message: "+ messageText.getText()).
-                        setTitle("Question: ").setNegativeButton("No",(dialog, cl) -> {})
-                        .setPositiveButton("Yes",(dialog, cl) -> {
-
-                            ChatMessage removedMessage = chatList.get(position);
-                    chatList.remove(position);
-                    adapter.notifyItemRemoved(position);
-
-                            Snackbar.make(messageText, "You deleted message #" +position,
-                                    Snackbar.LENGTH_LONG).setAction("Undo",c ->{
-                                        chatList.add(position, removedMessage);
-                                adapter.notifyItemInserted(position);
-                            }).show();
-
-
-
-                }).create().show();
+//                AlertDialog.Builder builder = new AlertDialog.Builder(ChatRoom.this);
+//                builder.setMessage("Do you want to delete the message: "+ messageText.getText()).
+//                        setTitle("Question: ").setNegativeButton("No",(dialog, cl) -> {})
+//                        .setPositiveButton("Yes",(dialog, cl) -> {
+//
+//                            ChatMessage removedMessage = chatList.get(position);
+//                    chatList.remove(position);
+//                    adapter.notifyItemRemoved(position);
+//
+//                            Snackbar.make(messageText, "You deleted message #" +position,
+//                                    Snackbar.LENGTH_LONG).setAction("Undo",c ->{
+//                                        chatList.add(position, removedMessage);
+//                                adapter.notifyItemInserted(position);
+//                            }).show();
+//
+//
+//
+//                }).create().show();
 
             });
 
