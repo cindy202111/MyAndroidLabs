@@ -34,7 +34,7 @@ import data.MessageDatabase;
 public class ChatRoom extends AppCompatActivity {
 
    // ArrayList<String> allMessages;
-   MessageDatabase db;
+    MessageDatabase db;
     ArrayList<ChatMessage> chatList = new ArrayList<>();
     ActivityChatRoomBinding binding;
     ChatRoomViewModel chatModel;
