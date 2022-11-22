@@ -175,6 +175,8 @@ public class ChatRoom extends AppCompatActivity {
             {
                 chatList.addAll( mDAO.getAllMessages() ); //Once you get the data from database
 
+                //runOnUiThread( () ->  binding.recycleView1.setAdapter( adapter ));
+
                 runOnUiThread( () ->  binding.recycleView.setAdapter( adapter )); //You can then load the RecyclerView
             });
         }
@@ -187,23 +189,13 @@ public class ChatRoom extends AppCompatActivity {
           FragmentManager fMgr = getSupportFragmentManager();
           FragmentTransaction tx = fMgr.beginTransaction();
           MessageDetailsFragment theFragment = new MessageDetailsFragment(newMessageValue);
-           tx.add(R.id.fragmentLocation, theFragment);
+           tx.replace(R.id.fragmentLocation, theFragment);
             tx.addToBackStack("");
            tx.commit() ;
 
-
-
-
         });
 
-
-
-
-
     }
-
-
-
 
 
     //represents a single row
