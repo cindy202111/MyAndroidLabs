@@ -16,7 +16,7 @@
       />
 
     <EditTextddd
-        android:id="@+id/editText"
+        android:id="@+id/cityTextField"
         android:layout_width="354dp"
         android:layout_height="55dp"
         android:hint="Type city name here"
@@ -24,7 +24,7 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/forecastButton"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
