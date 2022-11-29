@@ -34,7 +34,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 
-
+import algonquin.cst2335.dai00047.R;
 import algonquin.cst2335.dai00047.databinding.ActivityChatRoomBinding;
 import algonquin.cst2335.dai00047.databinding.SentMessageBinding;
 import data.ChatMessage;
@@ -182,7 +182,7 @@ public class ChatRoom extends AppCompatActivity {
                     // inflate
                     root = getLayoutInflater().inflate(R.layout.sent_message, parent, false);
                 } else {
-                    root = getLayoutInflater().inflate(R.layout.receive_message, parent, false);
+                    root = getLayoutInflater().inflate(R.layout.recieve_message, parent, false);
                 }
                 // pass the root to constructor
                 return new MyRowHolder(root);
@@ -210,7 +210,7 @@ public class ChatRoom extends AppCompatActivity {
 
             public int getItemViewType(int position) {
                 ChatMessage obj = messages1.get(position);
-                if (obj.isSentButton()) {
+                if (obj.getIsSentButton()) {
                     return 0;
                 } else {
                     return 1;
