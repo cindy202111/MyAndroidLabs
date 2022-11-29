@@ -1,27 +1,34 @@
 package algonquin.cst2335.dai00047;
 
+
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
-
+import algonquin.cst2335.dai00047.R;
+import algonquin.cst2335.dai00047.databinding.ActivityChatRoomBinding;
+import algonquin.cst2335.dai00047.databinding.SentMessageBinding;
+import data.ChatMessage;
+import data.ChatMessageDAO;
+import data.ChatRoomViewModel;
+import data.MessageDatabase;
+import data.MessageDetailsFragment;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewGroup;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
 
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -33,20 +40,7 @@ import java.util.Date;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-
-import algonquin.cst2335.dai00047.R;
-import algonquin.cst2335.dai00047.databinding.ActivityChatRoomBinding;
-import algonquin.cst2335.dai00047.databinding.SentMessageBinding;
-import data.ChatMessage;
-import data.ChatMessageDAO;
-import data.ChatRoomViewModel;
-import data.MessageDatabase;
-import data.MessageDetailsFragment;
-
-
-
 public class ChatRoom extends AppCompatActivity {
-
     MessageDatabase db;
     ActivityChatRoomBinding binding;
     //ArrayList<String> messages = new ArrayList<>();
@@ -102,10 +96,10 @@ public class ChatRoom extends AppCompatActivity {
 
                 });
                 builder.create().show();
-                Toast.makeText(this,"You clicked on the delete pail", Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"You clicked on the delete pail",Toast.LENGTH_LONG).show();
                 break;
             case R.id.item_2:
-                Snackbar.make(binding.myToolbar,"Version 1.0,created by Jingjing Lin", BaseTransientBottomBar.LENGTH_LONG).show();
+                Snackbar.make(binding.myToolbar,"Version 1.0,created by Yongli Dai", BaseTransientBottomBar.LENGTH_LONG).show();
 
         }
 
@@ -210,7 +204,7 @@ public class ChatRoom extends AppCompatActivity {
 
             public int getItemViewType(int position) {
                 ChatMessage obj = messages1.get(position);
-                if (obj.getIsSentButton()) {
+                if (obj.isSentButton()) {
                     return 0;
                 } else {
                     return 1;
@@ -295,19 +289,4 @@ public class ChatRoom extends AppCompatActivity {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

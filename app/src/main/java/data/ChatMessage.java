@@ -27,6 +27,6 @@ public class ChatMessage {
 
     public String getMessage(){return message;}
     public String getTimeSent(){return timeSent;}
-    public boolean getIsSentButton(){return isSentButton;}
+    public boolean isSentButton(){return isSentButton;}
 
 }
