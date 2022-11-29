@@ -25,8 +25,7 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-
-
+import algonquin.cst2335.dai00047.databinding.ActivityMainBinding;
 
 
 /**Description: Password validation for login
