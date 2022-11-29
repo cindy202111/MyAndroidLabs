@@ -7,13 +7,11 @@ android {
 
     buildFeatures {
 
-
         dataBinding = true
+
     }
 
-    dataBinding{
-        enabled = true
-    }
+
 
     defaultConfig {
         applicationId "algonquin.cst2335.dai00047"
@@ -46,6 +44,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
     implementation 'com.android.volley:volley:1.2.1'
-   
 
+    implementation 'androidx.databinding:databinding-compiler-common:3.4.0'
 }

@@ -25,6 +25,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import algonquin.cst2335.dai00047.MainActivity;
 import algonquin.cst2335.dai00047.R;
 
 @LargeTest
