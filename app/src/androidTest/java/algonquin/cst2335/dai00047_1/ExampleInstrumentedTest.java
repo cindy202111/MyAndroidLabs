@@ -1,4 +1,4 @@
-package algonquin.cst2335.dai00047;
+package algonquin.cst2335.dai00047_1;
 
 import android.content.Context;
 
