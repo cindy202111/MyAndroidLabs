@@ -9,30 +9,30 @@
 
     <TextView
         android:id="@+id/textView"
+        app.layout_contraintBottom_toTopOf="@+id/editTexxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app.layout_contraintBottom_toTopOf="@+id/editTexxt"
-        android:text="Type your password" />
+        android:text="Type in the name of a city:"
+      />
 
-    <EditText
+    <EditTextddd
         android:id="@+id/editText"
         android:layout_width="354dp"
-        android:layout_height="130dp"
-
-
+        android:layout_height="55dp"
+        android:hint="Type city name here"
         />
+
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:text="Login"
+        android:text="GET FORECAST"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-
 
 
         />
